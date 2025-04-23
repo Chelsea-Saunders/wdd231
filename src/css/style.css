@@ -193,9 +193,12 @@ a.site-title {
 }
 .icon {
   width: 1.5em;
-  height: 1.5em;
+  height: 2.5em;
   background-color: black;
 }
+/* #search-img, #menu-img {
+  height: 1;
+} */
 button#global-nav-toggle {
   background-color: black;
   color: white;
@@ -270,11 +273,46 @@ svg {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding-left: 5rem;
-  padding-right: 5rem;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#icon-header ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#icon-header li {
+  display: flex;
+  flex-direction: column; /* puts text above icons */
+  align-items: center;/* centers text/icon horizontally */
+  text-align: center; 
+  flex-wrap: wrap; /* allows items to wrap to the next line */
+}
+#icon-header span {
+  margin-bottom: .5rem; /* a little space between the text and icons */
+  font-size: 0.7rem; /* smaller text */
+  color: white;
+  text-decoration: none;
 }
 
 /* dropdown nav */
 .global-nav {
   display: none;
+}
+
+@media (min-width: 500px) and (max-width: 1000px) {
+  #icon-header {
+    height: 5em;
+  }
+  #icon-header  {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* text-align: center; */
+    /* flex-wrap: wrap; */
+  }
 }
