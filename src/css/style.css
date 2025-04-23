@@ -90,6 +90,7 @@
 
 * {
   box-sizing: border-box;
+  width: 100%;
 }
 img {
   max-width: 100%;
@@ -141,28 +142,16 @@ a:hover {
 }
 
 /* Title and logo styling */
-/* header {
-  width: 100%;
-} */
-.global-header {
+
+section.global-header {
   display: flex;
   background-color: black;
-  color: white;
+  /* color: white; */
   height: 5em;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0;
   width: 100%;
-}
-.logo {
-  height: 0;
-  width: 0;
-  margin: 0.5em;
-  display: inline-block;
-  border-top: 34px solid var(--bs-light-green);
-  border-left: 13px solid transparent;
-  border-right: 13px solid transparent;
-  color: white;
 }
 
 #park-header {
@@ -172,8 +161,23 @@ a:hover {
   color: white;
   text-decoration: none;
 }
-.site-title {
+span.logo {
+  height: 0;
+  width: 0;
+  margin: 0.5em;
+  display: inline-block;
+  border-top: 34px solid var(--bs-light-green);
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
   color: white;
+}
+span.national-park-service {
+  font-size: .7rem;
+  font-weight: bold;
+  color: white;
+}
+.site-title {
+  /* color: white; */
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -192,27 +196,36 @@ a.site-title {
   gap: 1rem;
 }
 .menu-label {
-  padding-bottom: 5px;
+  font-size: 1.2rem;
 }
 .icon {
   width: 1.5em;
   height: 2.5em;
   background-color: black;
 }
-/* #search-img, #menu-img {
-  height: 1;
-} */
+
+a.search.icon {
+  padding: 0;
+  margin: 0;
+  gap: 0;
+}
 button#global-nav-toggle {
   background-color: black;
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  border: none;
 }
 .image-banner {
   position: relative;
   width: 100%;
+  display: block;
+
 }
 .image-banner img {
   width: 100%;
-  display: block;
 }
 .image-banner_content {
   background-color: rgba(0, 0, 0, 0.5);
@@ -225,13 +238,12 @@ button#global-nav-toggle {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  flex-wrap: wrap;
 }
 .image-banner_name {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .image-banner_spans {
-  font-size: .75rem;
+  font-size: .5rem;
   display: grid;
   grid-template-columns: 1fr;
 }
