@@ -303,6 +303,8 @@ svg {
   gap: 1rem;
   padding-left: 20px;
   padding-right: 20px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
 }
 #icon-header ul {
   display: flex;
@@ -323,6 +325,7 @@ svg {
   flex: 1;
   text-align: center;
   min-width: 0;
+  /* overflow: hidden; */
 }
 .icon-wrapper {
   display: flex;
@@ -331,6 +334,8 @@ svg {
   /* gap: 0.25rem; space between text and icon */
   white-space: nowrap; /* prevents text from wrapping */
   padding-bottom: 0.3rem;
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
 }
 #info-icon {
   padding-left: 0.25rem;
@@ -341,12 +346,15 @@ svg {
   color: white;
   text-decoration: none;
 }
+.label--container {
+  font-size: 0.5rem;
+}
 /* dropdown nav */
 .global-nav {
   display: none;
 }
 
-@media (min-width: 768px)  {
+@media (min-width: 500px)  {
   /* logo and "national park service (left header) */
   /* Title and logo styling */
 section.global-header {
@@ -355,7 +363,7 @@ section.global-header {
 /* 'national park service + logo */
 .site-title > span {
   margin-left: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 /* right side of header w/ menu and search label and icons */
 .global-header__right {
@@ -371,13 +379,13 @@ section.global-header {
 }
 /* "yellowstone" */
 a.image-banner_name {
-  font-size: 2rem;
+  font-size: 1.5rem;
   width: 225px;
   flex: 0 0 auto; /* prevents flex item from growing or shrinking */
 }
 /* national park, id, mt, wy */
 .image-banner_spans > span{
-  font-size: .9rem;
+  font-size: .7rem;
   flex: 1; /* allows flex item to grow and fill the space */
 }
 /* the box around the icons - but not the banner behind it that's black */
@@ -391,11 +399,12 @@ a.image-banner_name {
   flex-wrap: nowrap; /* prevents wrapping */
   overflow-x: auto; /* enables scroll if needed */
   gap: 1rem;
-  max-width: 1000px;
+  /* max-width: 1000px; */
   margin: 0 auto;
 }
   #icon-header span {
-    font-size: 1.1rem;
+    font-size: .7rem;
+    text-align: center;
   }
   #icon-header li {
     flex: 1;
