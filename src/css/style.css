@@ -264,7 +264,7 @@ svg.icon {
 }
 
 /* removing whiet gap between image and links below */
-section, nav, h1, h2, h3, p, ul, li {
+section, nav, p, ul, li {
   margin: 0;
   padding: 0;
 }
@@ -290,10 +290,10 @@ svg {
 }
 
 /* removing all li underlines */
-#fees-icon, #calendar-icon, #maps-icon, 
+/* #fees-icon, #calendar-icon, #maps-icon, 
 #alert-icon, #info-icon {
   list-style-type: none;
-}
+} */
 
 #icon-header {
   background-color: var(--bs-black);
@@ -319,19 +319,34 @@ svg {
   text-align: center; 
   flex-wrap: wrap; /* allows items to wrap to the next line */
 }
+.icon-link {
+  flex: 1;
+  text-align: center;
+  min-width: 0;
+}
+.icon-wrapper {
+  display: flex;
+  flex-direction: column; /* puts text above icons, stacked vertically */
+  align-items: center; /* centers text/icon horizontally */
+  /* gap: 0.25rem; space between text and icon */
+  white-space: nowrap; /* prevents text from wrapping */
+  padding-bottom: 0.3rem;
+}
+#info-icon {
+  padding-left: 0.25rem;
+}
 #icon-header span {
-  margin-bottom: .5rem; /* a little space between the text and icons */
+  /* margin-bottom: .5rem; a little space between the text and icons */
   font-size: 0.7rem; /* smaller text */
   color: white;
   text-decoration: none;
 }
-
 /* dropdown nav */
 .global-nav {
   display: none;
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px)  {
   /* logo and "national park service (left header) */
   /* Title and logo styling */
 section.global-header {
@@ -349,6 +364,11 @@ section.global-header {
 .menu-label {
   padding-right: 1rem;
 }
+.image-banner {
+  height: 350px;
+  display: flex;
+  justify-content: center;
+}
 /* "yellowstone" */
 a.image-banner_name {
   font-size: 2rem;
@@ -362,12 +382,14 @@ a.image-banner_name {
 }
 /* the box around the icons - but not the banner behind it that's black */
 #icon-header  {
-  display: felx;
-  justify-content: center;
+  display: flex;
+  justify-content: space-between; /* can use center too */
   height: 5em;
-  padding-left: 20%;
-  padding-right: 20%;
-  flex-wrap: nowrap;
+  padding: 0 20%;
+  /* padding-left: 20%;
+  padding-right: 20%; */
+  flex-wrap: nowrap; /* prevents wrapping */
+  overflow-x: auto; /* enables scroll if needed */
   gap: 1rem;
   max-width: 1000px;
   margin: 0 auto;
