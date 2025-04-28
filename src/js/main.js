@@ -4,14 +4,8 @@ import { getParkData } from "./parkService.mjs";
 const parkData = getParkData();
 
 //select the elements
-const disclaimer = document.querySelector(".disclaimer");
-const disclaimerLink = document.querySelector("a"); // select the a inside the disclaimer!!
 const imageBanner = document.querySelector(".image-banner img");
 const imageBannerContent = document.querySelector(".image-banner_content")
-
-// update disclaimer
-disclaimer.href = parkData.url; // update the href to the park's URL
-disclaimerLink.textContent = parkData.fullName; // update the text to the park's name
 
 // update page title
 document.title = parkData.fullName; 
@@ -34,3 +28,19 @@ function parkInfoTemplate(info) {
         <span>${info.states}</span>
     </p>`;
 }
+// create setHeaderInfo function
+function setHeaderInfo(data) {
+    const disclaimer = document.querySelector(".disclaimer");
+    const disclaimerLink = document.querySelector(".disclaimer a"); // select the a inside the disclaimer!!
+    // update disclaimer
+    disclaimerLink.href = data.url; // update the href to the park's URL
+    disclaimerLink.textContent = data.fullName; // update the text to the park's name
+    // update title for the site. Notice that we can select things in the head just like in the body with a querySelector
+    document.querySelector("head > title").textContent = `${data.fullName} | Yellowstone National Park`;
+    // set the banner image
+    document.querySelector(".image-banner > img").src = data.images[0].url;
+    // user the template function above to set the rest of the specific info in the header
+    document.querySelector(".image-banner_content").innerHTML = parkInfoTemplate(data);
+}
+const parkData = getParkData();
+setHeaderInfo(parkData); // call the function to set the header info
