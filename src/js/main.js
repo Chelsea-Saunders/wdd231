@@ -5,12 +5,13 @@ const parkData = getParkData();
 
 //select the elements
 const disclaimer = document.querySelector(".disclaimer");
+const disclaimerLink = document.querySelector("a"); // select the a inside the disclaimer!!
 const imageBanner = document.querySelector(".image-banner img");
 const imageBannerContent = document.querySelector(".image-banner_content")
 
 // update disclaimer
 disclaimer.href = parkData.url; // update the href to the park's URL
-disclaimer.innerHTML = parkData.fullName; // update the text to the park's name
+disclaimerLink.textContent = parkData.fullName; // update the text to the park's name
 
 // update page title
 document.title = parkData.fullName; 

@@ -139,6 +139,10 @@ a:hover {
   padding: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  margin: 0;
+  padding: 0.5em;
+  font-size: 0.8rem;
+  color: var(--bs-black);
 }
 
 /* Title and logo styling */
@@ -359,62 +363,62 @@ svg {
 @media (min-width: 500px)  {
   /* logo and "national park service (left header) */
   /* Title and logo styling */
-section.global-header {
-  display: flex;
-}
-/* 'national park service + logo */
-.site-title > span {
-  margin-left: 0.5rem;
-  font-size: 1rem;
-}
-/* right side of header w/ menu and search label and icons */
-.global-header__right {
-  flex: 1;
-}
-.menu-label {
-  padding-right: 1rem;
-}
-.image-banner {
-  height: 350px;
-  display: flex;
-  justify-content: center;
-}
-/* "yellowstone" */
-/* a.image-banner_name {
-  font-size: 1.5rem;
-  width: 225px;
-  flex: 0 0 auto; /* prevents flex item from growing or shrinking */
-} */
-.image-banner_name {
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
-  width: auto;
-}
-/* #park-header a {
-  color: white; 
-  text-decoration: none;
-  max-width: 100%;
-} */
-/* national park, id, mt, wy */
-.image-banner_spans > span{
-  font-size: .7rem;
-  flex: 1; /* allows flex item to grow and fill the space */
-}
-/* the box around the icons - but not the banner behind it that's black */
-#icon-header  {
-  display: flex;
-  justify-content: space-between; /* can use center too */
-  height: 5em;
-  padding: 0 20%;
-  /* padding-left: 20%;
-  padding-right: 20%; */
-  flex-wrap: nowrap; /* prevents wrapping */
-  overflow-x: auto; /* enables scroll if needed */
-  gap: 1rem;
-  /* max-width: 1000px; */
-  margin: 0 auto;
-}
+  section.global-header {
+    display: flex;
+  }
+  /* 'national park service + logo */
+  .site-title > span {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+  }
+  /* right side of header w/ menu and search label and icons */
+  .global-header__right {
+    flex: 1;
+  }
+  .menu-label {
+    padding-right: 1rem;
+  }
+  .image-banner {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+  }
+  /* "yellowstone" */
+  /* a.image-banner_name {
+    font-size: 1.5rem;
+    width: 225px;
+    flex: 0 0 auto; /* prevents flex item from growing or shrinking 
+  } */
+  .image-banner_name {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    width: auto;
+  }
+  /* #park-header a {
+    color: white; 
+    text-decoration: none;
+    max-width: 100%;
+  } */
+  /* national park, id, mt, wy */
+  .image-banner_spans > span{
+    font-size: .7rem;
+    flex: 1; /* allows flex item to grow and fill the space */
+  }
+  /* the box around the icons - but not the banner behind it that's black */
+  #icon-header  {
+    display: flex;
+    justify-content: space-between; /* can use center too */
+    height: 5em;
+    padding: 0 20%;
+    /* padding-left: 20%;
+    padding-right: 20%; */
+    flex-wrap: nowrap; /* prevents wrapping */
+    overflow-x: auto; /* enables scroll if needed */
+    gap: 1rem;
+    /* max-width: 1000px; */
+    margin: 0 auto;
+  }
   #icon-header span {
     font-size: .7rem;
     text-align: center;
