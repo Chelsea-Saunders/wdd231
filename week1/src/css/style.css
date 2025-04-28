@@ -246,12 +246,16 @@ svg.icon {
   font-size: 1.5rem;
 }
 .image-banner_spans {
-  font-size: .5rem;
+  /* font-size: .5rem;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .image-banner_spans > span {
   padding-left: 1rem;
+  font-size: 0.7rem;
 }
 
 /* "yellowstone" */
@@ -261,6 +265,7 @@ svg.icon {
 #park-header a {
   color: white;
   text-decoration: none;
+  width: 270px;
 }
 
 /* removing whiet gap between image and links below */

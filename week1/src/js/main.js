@@ -24,9 +24,12 @@ imageBannerContent.innerHTML = parkInfoTemplate(parkData);
 
 //function for the name designation and states of the park
 function parkInfoTemplate(info) {
-    return `<a href="/" class="image-banner_name">${info.fullName}</a>
+    const parkNameParts = info.name.split(" National Park");
+    const parkMainName = parkNameParts[0];
+
+    return `<a href="/" class="image-banner_name">${parkMainName}</a>
     <p class="image-banner_spans">
         <span>${info.designation}</span>
         <span>${info.states}</span>
-        </p>`;
+    </p>`;
 }
