@@ -246,12 +246,9 @@ svg.icon {
   font-size: 1.5rem;
 }
 .image-banner_spans {
-  /* font-size: .5rem;
+  font-size: .5rem;
   display: grid;
-  grid-template-columns: 1fr; */
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  grid-template-columns: 1fr;
 }
 .image-banner_spans > span {
   padding-left: 1rem;
@@ -383,11 +380,22 @@ section.global-header {
   justify-content: center;
 }
 /* "yellowstone" */
-a.image-banner_name {
+/* a.image-banner_name {
   font-size: 1.5rem;
   width: 225px;
   flex: 0 0 auto; /* prevents flex item from growing or shrinking */
+} */
+.image-banner_name {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+  width: auto;
 }
+/* #park-header a {
+  color: white; 
+  text-decoration: none;
+  max-width: 100%;
+} */
 /* national park, id, mt, wy */
 .image-banner_spans > span{
   font-size: .7rem;
