@@ -1,0 +1,208 @@
+[
+    {
+        "name": "Chocolate Chip Cookies", 
+        "description": "Soft and gooey cookies with chocoate chips in them.", 
+        "ingredients": [
+            {
+                "name": "butter", 
+                "amounts": {
+                    "amount": "1", 
+                    "unit": "lb"
+                }, 
+                "notes": "softened"
+            },
+            {
+                "name": "brown sugar", 
+                "amounts": {
+                    "amount": "1 1/2", 
+                    "unit": "cups"
+                },
+                "notes": ""
+            },
+            {
+                "name": "white sugar",
+                "amounts": {
+                    "amount": "1",
+                    "unit": "cups"
+                },
+                "notes": ""
+            },
+            {
+                "name": "eggs", 
+                "amounts": {
+                    "amount": "3",
+                    "unit": "large"
+                },
+                "notes": ""
+            },
+            {
+                "name": "baking soda", 
+                "amounts": {
+                    "amount": "2", 
+                    "unit": "teaspoons"
+                }, 
+                "notes": ""
+            },
+            {
+                "name": "salt", 
+                "amounts": {
+                    "amount": "1/2", 
+                    "unit": "teaspoon"
+                },
+                "notes": ""
+            }, 
+            {
+                "name": "flour", 
+                "amounts": {
+                    "amount": "5",
+                    "unit": "cups"
+                },
+                "notes": "we like 3 cups white and 2 cups whole wheat flour."
+            }, 
+            {
+                "name": "chocolate chips",
+                "amounts": {
+                    "amount": "2", 
+                    "unit": "cups"
+                },
+                "notes": "semi-sweet"
+            },
+            {
+                "name": "coconut", 
+                "amounts": {
+                    "amount": "1-2",
+                    "unit": "cups"
+                },
+                "notes": "shredded"
+            }
+        ], 
+        "steps": [
+            "Cream the butter and sugar together, then beat in the eggs and vanilla.", 
+            "Mix in salt, soda and flour", 
+            "Add chocolate chips and coconut", 
+            "Bake 8-10 minutes at 350F"
+        ]
+    },
+    {
+        "name": "Pepper Jelly", 
+        "description": "The perfect addition to any meat as a dip or spread", 
+        "ingredients": [
+            {
+                "name": "peppers", 
+                "amounts": {
+                    "amount": "4", 
+                    "unit": "cups"
+                }, 
+                "notes": "use red jalapenos and red anaheim and red bell peppers. Use about 50-75% bell peppers and the rest for heat, anaheim and jalapeno's."
+            },
+            {
+                "name": "white vinegar", 
+                "amounts": {
+                    "amount": "1", 
+                    "unit": "cups"
+                },
+                "notes": ""
+            },
+            {
+                "name": "white sugar",
+                "amounts": {
+                    "amount": "5",
+                    "unit": "cups"
+                },
+                "notes": ""
+            },
+            {
+                "name": "lemon juice", 
+                "amounts": {
+                    "amount": "1",
+                    "unit": "teaspoon"
+                },
+                "notes": ""
+            },
+            {
+                "name": "pectin", 
+                "amounts": {
+                    "amount": "1", 
+                    "unit": "box"
+                }, 
+                "notes": "(1.75oz)"
+            }
+        ], 
+        "steps": [
+            "Mix everything together in a sauce pan and bring to a rolling boil, then reduce heat.",
+                "Use the seeds from the Jalapeno and Anaheim peppers to add to the jelly, but not the bell peppers.",
+            "Keep boiling for 15 minutes, stirring occasionall.",
+            "Pour hot jelly into clean, hot jars, leaving 1/4 inch head space",
+            "Seal jars and adjust caps",
+            "Water bath for 15 minutes"
+        ]
+    },
+    {
+        "name": "Apple Cider", 
+        "description": "Fresh warm apple cider", 
+        "ingredients": [
+            {
+                "name": "apples", 
+                "amounts": {
+                    "amount": "12", 
+                    "unit": "whole"
+                }, 
+                "notes": "honey-crisp"
+            },
+            {
+                "name": "oranges", 
+                "amounts": {
+                    "amount": "2", 
+                    "unit": "whole"
+                },
+                "notes": "plus a little concentrate if desired"
+            },
+            {
+                "name": "cinnamon sticks",
+                "amounts": {
+                    "amount": "5",
+                    "unit": "whole sticks"
+                },
+                "notes": ""
+            },
+            {
+                "name": "whole clove", 
+                "amounts": {
+                    "amount": "1-2",
+                    "unit": "teaspoons"
+                },
+                "notes": ""
+            },
+            {
+                "name": "nutmeg", 
+                "amounts": {
+                    "amount": "1", 
+                    "unit": "teaspoons"
+                }, 
+                "notes": "powdered"
+            },
+            {
+                "name": "all spice", 
+                "amounts": {
+                    "amount": "1", 
+                    "unit": "teaspoon"
+                },
+                "notes": "(mounded)"
+            }, 
+            {
+                "name": "brown sugar", 
+                "amounts": {
+                    "amount": "1/2 - 2/3",
+                    "unit": "cups"
+                },
+                "notes": ""
+            }
+        ], 
+        "steps": [
+            "Place in a big pot and cover with water", 
+            "Simmer for 2-3 hours, stir every 30 minutes, pull out cinnamon sticks and as many cloves as possible (it's ok if you miss one)", 
+            "Mash the apples, then strain out all the liquid and mash the apples and get al the liquids out", 
+            "Can freeze, drink fresh or water bath can for 11 minutes (if in a hurry, you can cool it in the fridge over night, heating up slowly until hot and then water bath.)"
+        ]
+    }
+]
