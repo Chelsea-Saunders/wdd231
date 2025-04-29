@@ -1,21 +1,17 @@
+// Step 1: Import
 import { getParkData } from "./parkService.mjs";
 
-// get the data
-const parkData = getParkData();
-
-//select the elements
-const imageBanner = document.querySelector(".image-banner img");
-const imageBannerContent = document.querySelector(".image-banner_content")
-
-// update page title
-document.title = parkData.fullName; 
-
-// update hero image
-imageBanner.src = parkData.images[0].url; // this will update where the image comes from
-imageBanner.alt = parkData.images[0].altText || parkData.fullName; // this will update the alt text or give the park's name 
-
-// update the name, designation and states of park
-imageBannerContent.innerHTML = parkInfoTemplate(parkData);
+const parkInfoLinks = [
+    {
+        name: "Current Conditions #$*#$",
+        link: "conditions.html",
+        image: parkData.images[2].url,
+        description: "See what conditions to expect in the park before leaving on your trip."
+    },
+    {
+        
+    }
+]
 
 //function for the name designation and states of the park
 function parkInfoTemplate(info) {
@@ -28,6 +24,9 @@ function parkInfoTemplate(info) {
         <span>${info.states}</span>
     </p>`;
 }
+
+// Step 2: Define functions (all of them, remember they're read in order of decending page)
+
 // create setHeaderInfo function
 function setHeaderInfo(data) {
     const disclaimer = document.querySelector(".disclaimer");
@@ -42,5 +41,39 @@ function setHeaderInfo(data) {
     // user the template function above to set the rest of the specific info in the header
     document.querySelector(".image-banner_content").innerHTML = parkInfoTemplate(data);
 }
-const parkData = getParkData();
-setHeaderInfo(parkData); // call the function to set the header info
+
+// function to fill main content for html
+function fillMainContent(parkData) {
+    const mainIntro = document.querySelector(".intro");
+    const mainInfo = document.querySelector(".info");
+
+    // update the intro
+    mainIntro.innerHTML = `<h2>${parkData.fullName}</h2><p>${parkData.description}</p>`;
+    // update the info
+    mainInfo.innerHTML = `<h2>${parkData.name}</h2><p>${parkData.weatherInfo}</p>`;
+}
+
+// function that will create a component consisting of an image, headline and paragraph
+function mediaCardTemplate(info) {
+    return`
+       <a href="${info.url}" class="media-card">
+        <img src="${info.imgUrl}" alt="${info.info.altText}">
+        <h3>${info.title}</h3>
+        <p>${info.description}</p>
+        </a>`;
+}
+
+// Step 3: DOMContentLoaded runs AFTER everything else is ready or...ERROR
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    // Step 3.1: Declare youre DOM elements (querySelector) INSIDE the DOMContentLoaded()
+
+    const parkData = getParkData(); 
+
+    // Step 3.2: Call functions INSIDE the DOMContentLoaded()
+    
+    // get the data
+    setHeaderInfo(parkData); // call the function to set the header info
+    fillMainContent(parkData); // call the function to fill the main content
+});
