@@ -104,7 +104,14 @@ function setParkIntro(data) {
 function setParkInfo() {
     const mainInfo = document.querySelector(".info");
     // const cards = data.map(mediaCardTemplate);
-    mainInfo.innerHTML = parkInfoLinks.map(mediaCardTemplate).join("");
+    const cardsHTML = parkInfoLinks.map(mediaCardTemplate).join("");
+
+    // wrapping image links in a container
+    mainInfo.innerHTML += `
+        <div class="media-card-container">
+            ${cardsHTML}
+        </div>
+    `;
 }
 // create a function for footer
 function setParkFooter(data) {
