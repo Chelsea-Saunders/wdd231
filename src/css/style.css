@@ -456,14 +456,20 @@ svg {
  .media-card-container {
   display: flex;
   justify-content: center;
-  padding: 0;
+  padding: 1.5rem 0;
+  gap: 0.5rem;
   flex-wrap: nowrap; /* keep it all in one row */
+  padding-left: 1rem;
+  padding-right: 1rem;
  }
  .media-card {
   max-width: 90%;
   box-sizing: border-box;
   background-color: var(--bs-white);
   text-align: left;
+  padding: 0;
+ }
+ .media-card a {
   padding: 0;
  }
  .media-card img {
