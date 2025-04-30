@@ -148,7 +148,7 @@ a:hover {
 /* Title and logo styling */
 section.global-header {
   display: flex;
-  background-color: black;
+  background-color: var(--bs-black);
   height: 5em;
   justify-content: space-between;
   align-items: center;
@@ -163,7 +163,7 @@ span.logo {
   border-top: 34px solid var(--bs-light-green);
   border-left: 13px solid transparent;
   border-right: 13px solid transparent;
-  color: white;
+  color: var(--bs-white);
 }
 /* "national park service" */
 span.national-park-service {
@@ -190,8 +190,8 @@ span.national-park-service {
 }
 /* this button id holds the "menu" label and menu icon */
 button#global-nav-toggle {
-  background-color: black;
-  color: white;
+  background-color: var(--bs-black);
+  color: var(--bs-white);
   display: flex;
   align-items: center;
   gap: 0;
@@ -219,7 +219,7 @@ button#global-nav-toggle {
 svg.icon {
   width: 1.5rem;
   height: 1.5rem;
-  background-color: black;
+  background-color: var(--bs-black);
 }
 .menu-label {
   font-size: 1.2rem;
@@ -246,9 +246,6 @@ svg.icon {
   justify-content: space-between;
   align-items: flex-end;
 }
-.image-banner_name {
-  font-size: 1.5rem;
-}
 .image-banner_spans {
   font-size: .5rem;
   display: grid;
@@ -261,10 +258,10 @@ svg.icon {
 
 /* "yellowstone" */
 #park-header {
-  background-color: black;
+  background-color: var(--bs-black);
 }
 #park-header a {
-  color: white;
+  color: var(--bs-white);
   text-decoration: none;
   width: 270px;
 }
@@ -292,7 +289,7 @@ section, nav, p, ul, li {
 
 svg {
   background-color: var(--bs-black);
-  fill: white;
+  fill: var(--bs-white);
 }
 
 #icon-header {
@@ -338,7 +335,7 @@ svg {
 }
 #icon-header span {
   font-size: 0.7rem; /* smaller text */
-  color: white;
+  color: var(--bs-white);
   text-decoration: none;
 }
 .label--container {
@@ -347,6 +344,50 @@ svg {
 /* dropdown nav */
 .global-nav {
   display: none;
+}
+.intro h2 {
+  padding: 1.4rem 1rem 1rem 1rem;
+  font-size: 1.3rem;
+  margin: 0;
+}
+.intro p {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.9rem;
+  margin: 0;
+}
+/* main page links with images*/
+.media-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.media-card_img {
+  /* width: 90%; */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  /* padding-top: 1rem; */
+}
+.media-card > a {
+  text-decoration: none;
+  color: var(--bs-black);
+  font-size: 0.9rem;
+  padding: 1rem;
+  font-family: var(--bs-font-sans-serif)
+}
+.media-card a > p {
+  font-size: 0.8rem;
+}
+
+/* Main Footer */
+#park-footer{
+  background-image: url("../images/topo_pattern.png");
+  background-repeat: repeat;
+  background-size: cover;
+  padding: 1rem;
+  color: var(--bs-black);
+  font-size: 0.7rem;
 }
 
 @media (min-width: 500px)  {
@@ -375,7 +416,7 @@ svg {
   /* "yellowstone" */
   .image-banner_name {
     font-size: 1.5rem;
-    color: white;
+    color: var(--bs-white);
     text-decoration: none;
     width: auto;
   }
