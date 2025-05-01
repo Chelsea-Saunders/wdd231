@@ -440,8 +440,17 @@ svg {
     flex-wrap: nowrap; /* prevents wrapping */
     overflow-x: auto; /* enables scroll if needed */
     gap: 1rem;
-    /* max-width: 1000px; */
     margin: 0 auto;
+    text-decoration: none;
+  }
+  #icon-header a {
+    text-decoration: none;
+    color: var(--bs-white);
+  }
+  #icon-header a:hover {
+    color: var(--bs-white);
+    text-decoration: underline;
+    cursor: pointer;
   }
   #icon-header span {
     font-size: .7rem;
@@ -451,6 +460,10 @@ svg {
     flex: 1;
     text-align: center;
     min-width: 0;
+  }
+  span#fees, span#calendar, span#maps, 
+  span#alerts, span#info {
+    padding-bottom: 2px;
   }
   /* css for image links */
  .media-card-container {
