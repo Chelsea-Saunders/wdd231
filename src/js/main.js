@@ -1,4 +1,4 @@
-import { getParkData } from "./parkService.mjs";
+import { getParkData, getVisitorCenterData } from "./parkService.mjs";
 
 //function for the name designation and states of the park
 function parkInfoTemplate(info) {
@@ -74,7 +74,6 @@ function contactFooter(info) {
         </section>
         `;
 }
-
 // functions for functions
 function setParkIntro(data) {
     const mainIntro = document.querySelector(".intro");
@@ -115,22 +114,22 @@ function getInfoLinks(images) {
             image: images[2]?.url || "",
             altText: images[2]?.altText || "Current conditions photo",
             description: "See road closures, trail conditions, and weather updates."
-          },
-          {
+            },
+            {
             name: "Fees & Passes",
             link: "#fees",
             image: images[3]?.url || "",
             altText: images[3]?.altText || "Fee and pass information",
             description: "Get information on entrance fees, passes, and permits."
-          },
-          {
+            },
+            {
             name: "Visitor Centers",
             link: "#centers",
             image: images[9]?.url || "",
             altText: images[9]?.altText || "Visitor centers and services",
             description: "Find visitor centers, hours, and available services."
-          }
-    ]
+        }
+    ];
 }
 async function init() {
     try {

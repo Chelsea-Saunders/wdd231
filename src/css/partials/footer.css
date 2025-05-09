@@ -1,0 +1,9 @@
+/* Main Footer */
+#park-footer{
+    background-image: url("../../images/topo_pattern.png");
+    background-repeat: repeat;
+    background-size: cover;
+    padding: 1rem;
+    color: var(--bs-black);
+    font-size: 0.7rem;
+  }
