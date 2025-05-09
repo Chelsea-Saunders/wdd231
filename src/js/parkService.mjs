@@ -1,21 +1,23 @@
 const baseUrl = "https://developer.nps.gov/api/v1/";
-// API key
-const apiKey = "JSeukSZlUUihck5uk4KPPYDrrzvSulFtWUOPDsn7";
-// const apiKey = import.meta.env.VITE_NPS_API_KEY;
-console.log("loaded api key:", apiKey);
+// each request will have a baseUrl + resourcePath + parameters
+const apiKey = import.meta.env.VITE_NPS_API_KEY;
 
 export async function getParkData() {
-  let data ={};
+
   const options = {
     method: "GET",
     headers: {
       "X-Api-Key": apiKey
     }
   };
-  const response = await fetch(baseUrl + "parks" + "?parkCode=yell", options);
-  // check to make sure the response was ok
+
+  let data = {};
+
+  const response = await fetch (baseUrl + "parks" + "?parkCode=yell", options);
+
+  // make sure response is ok
   if (response.ok) {
-    // convert to json
+    // conver to json
     data = await response.json();
   } else throw new Error("response not ok");
   return data.data[0];

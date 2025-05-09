@@ -1,80 +1,56 @@
-// Step 1: Import
 import { getParkData } from "./parkService.mjs";
-// console.log("test var:", import.meta.env.VITE_TEST_VAR);
-
-
-const parkData = getParkData();
-
-
-const parkInfoLinks = [
-    {
-        name: "Current Conditions &#x203A;",
-        link: "conditions.html",
-        image: parkData.images[2].url,
-        altText: "Visitors walking down a bordwalk trail with steam rising from the hotsprings.",
-        description: "See what conditions to expect in the park before leaving on your trip."
-    },
-    {
-        name: "Fees and Passes &#x203A;", 
-        link: "fees.html", 
-        image: parkData.images[3].url,
-        altText: "Visitors on a boardwalk with geyser erupting in front of them.",
-        description: "Learning about the fees and passes that are avaliable."
-    },
-    {
-        name: "Visitor Centers &#x203A",
-        link: "visitor_center.html",
-        image: parkData.images[9].url,
-        altText: "Wild sheep resting on a hill near a visitors center.",
-        description: "Learn about the visitor centers in the park."
-    }
-]; 
 
 //function for the name designation and states of the park
 function parkInfoTemplate(info) {
     const parkNameParts = info.name.split(" National Park");
     const parkMainName = parkNameParts[0];
 
-    return `<a href="/" class="park-decription_name">${parkMainName}</a>
+    return `<a href="/" class="park-description_name">${parkMainName}</a>
     <p class="park-description-p">
         <span>${info.designation}</span>
         <span>${info.states}</span>
     </p>`;
 }
-
-// Step 2: Define functions (all of them, remember they're read in order of decending page)
-
 // create setHeaderInfo function
 function setHeaderInfo(data) {
     const disclaimerLink = document.querySelector(".disclaimer > a"); // select the a inside the disclaimer!!
     // update disclaimer
     disclaimerLink.href = data.url; // update the href to the park's URL
-    disclaimerLink.innerHTML = data.fullName; // update the text to the park's name
+    disclaimerLink.textContent = data.fullName; // update the text to the park's name
     // update title for the site. Notice that we can select things in the head just like in the body with a querySelector
     document.querySelector("head > title").textContent = `${data.fullName} | Yellowstone National Park`;
+    // set banner image
+    const bannerImg = document.querySelector(".image-banner > img");
+    if (data.images && data.images.length > 0) {
+        bannerImg.src = data.images[0].url;
+    } else {
+        bannerImg.alt = "No image available";
+    }
+    
     // set the banner image
-    document.querySelector(".image-banner > img").src = data.images[0].url;
+    // document.querySelector(".image-banner > img").src = data.images[0].url;
     // user the template function above to set the rest of the specific info in the header
     document.querySelector(".image-banner_content").innerHTML = parkInfoTemplate(data);
 }
 
 // function for mailing address
 function getMailingAddress(addresses) {
-    const mail = addresses.find((address) => address.type === "Mailing");
-    return mail
+    if (!Array.isArray(addresses)) return null; 
+    return addresses.find((address) => address.type === "Mailing") || null;
 }
 // function for phone number
 function getPhoneNumber(numbers) {
+    if (!Array.isArray(numbers)) return "unavailable"; 
     const voice = numbers.find((number) => number.type === "Voice");
-    return voice.phoneNumber;
+    return voice?.phoneNumber || "unavailable";
 }
 
 // function that will create a component consisting of an image, headline and paragraph
 function mediaCardTemplate(info) {
     return`
         <div class="media-card">
-            <a href="${info.link}">
-                <img src="${info.image}" alt="${info.altText}" class="media-card_img">
+            <a href="${info.link || '#'}">
+                <img src="${info.image}" alt="${info.altText || 'Image Description'}" class="media-card_img">
                 <h3 class="media-card_title">${info.name}</h3>
                 <p>${info.description}</p>
             </a>
@@ -84,14 +60,14 @@ function mediaCardTemplate(info) {
 // function to create contact info in footer
 function contactFooter(info) {
     const mail = getMailingAddress(info.addresses);
-    const voice = getPhoneNumber(info.contacts.phoneNumbers);
+    const voice = getPhoneNumber(info.contacts?.phoneNumbers);
 
     return `
         <section class="park-footer">
             <h3>Contact Info</h3>
             <p><strong>Mailing Address:</strong><br>
-            ${mail.line1}<br>
-            ${mail.city}, ${mail.stateCode} ${mail.postalCode}
+            ${mail?.line1 || "No address available"}<br>
+            ${mail?.city ||""}, ${mail.stateCode ||""} ${mail.postalCode ||""}
             </p>
             <p><strong>Phone:</strong><br>
             ${voice}</p>
@@ -104,10 +80,10 @@ function setParkIntro(data) {
     const mainIntro = document.querySelector(".intro");
     mainIntro.innerHTML = `<h2>${data.fullName}</h2><p>${data.description}</p>`;
 }
-function setParkInfo() {
+function setParkInfo(links) {
     const mainInfo = document.querySelector(".info");
     // const cards = data.map(mediaCardTemplate);
-    const cardsHTML = parkInfoLinks.map(mediaCardTemplate).join("");
+    const cardsHTML = links.map(mediaCardTemplate).join("");
 
     // wrapping image links in a container
     mainInfo.innerHTML += `
@@ -116,30 +92,60 @@ function setParkInfo() {
         </div>
     `;
 }
+function setParkImages(images) {
+    const container = document.querySelector(".media-cards");
+    container.innerHTML = images 
+        .slice(0, 3)
+        .map(img => `<img src="${img.url}" alt="${img.altText}" />`)
+        .join("");
+}
 // create a function for footer
 function setParkFooter(data) {
-    document.querySelector("#park-footer").innerHTML += contactFooter(data);
+    const footer = document.querySelector("#park-footer");
+    if (!footer) return; // check if footer element exists
+    const contactHTML = contactFooter(data);
+    footer.innerHTML = contactHTML; // replaces instead of appending
 }
-
+// links to park information at bottom of page
+function getInfoLinks(images) {
+    return [
+        {
+            name: "Current Conditions",
+            link: "#conditions",
+            image: images[2]?.url || "",
+            altText: images[2]?.altText || "Current conditions photo",
+            description: "See road closures, trail conditions, and weather updates."
+          },
+          {
+            name: "Fees & Passes",
+            link: "#fees",
+            image: images[3]?.url || "",
+            altText: images[3]?.altText || "Fee and pass information",
+            description: "Get information on entrance fees, passes, and permits."
+          },
+          {
+            name: "Visitor Centers",
+            link: "#centers",
+            image: images[9]?.url || "",
+            altText: images[9]?.altText || "Visitor centers and services",
+            description: "Find visitor centers, hours, and available services."
+          }
+    ]
+}
 async function init() {
-    const parkData = await getParkData();
-
-    setParkInfo(parkData);
-    setParkIntro(parkData);
-    setHeaderInfo(parkData);
-    setParkFooter(parkData);
-}
+    try {
+        const parkData = await getParkData();
+        const infoLinks = getInfoLinks(parkData.images); // this will build the card
+        setParkInfo(infoLinks); // this will output the media cards
+        setParkIntro(parkData);
+        setHeaderInfo(parkData);
+        setParkFooter(parkData);
+        // setParkImages(parkData.images);
+        // setParkInfo(parkData);
+    } catch (error) {
+        console.error("Error loading park data:", error);
+        const main = document.querySelector("main");
+        main.innerHTML = "<p class='error'>Failed to load park information. Please try again later.</p>";
+    }
+}   
 init();
-// // Step 3: DOMContentLoaded runs AFTER everything else is ready or...ERROR
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     // Call functions INSIDE the DOMContentLoaded()
-//     setParkInfo(parkData); // call the function to set the park info
-//     setParkIntro(parkData); // call the function to set the park intro
-    
-//     // get the data
-//     setHeaderInfo(parkData); // call the function to set the header info
-    
-//      // add the contact info to the footer
-//     setParkFooter(parkData);
-// });
