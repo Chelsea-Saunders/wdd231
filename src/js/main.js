@@ -1,7 +1,10 @@
 // Step 1: Import
 import { getParkData } from "./parkService.mjs";
+// console.log("test var:", import.meta.env.VITE_TEST_VAR);
+
 
 const parkData = getParkData();
+
 
 const parkInfoLinks = [
     {
@@ -118,16 +121,25 @@ function setParkFooter(data) {
     document.querySelector("#park-footer").innerHTML += contactFooter(data);
 }
 
-// Step 3: DOMContentLoaded runs AFTER everything else is ready or...ERROR
+async function init() {
+    const parkData = await getParkData();
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Call functions INSIDE the DOMContentLoaded()
-    setParkInfo(parkData); // call the function to set the park info
-    setParkIntro(parkData); // call the function to set the park intro
-    
-    // get the data
-    setHeaderInfo(parkData); // call the function to set the header info
-    
-     // add the contact info to the footer
+    setParkInfo(parkData);
+    setParkIntro(parkData);
+    setHeaderInfo(parkData);
     setParkFooter(parkData);
-});
+}
+init();
+// // Step 3: DOMContentLoaded runs AFTER everything else is ready or...ERROR
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     // Call functions INSIDE the DOMContentLoaded()
+//     setParkInfo(parkData); // call the function to set the park info
+//     setParkIntro(parkData); // call the function to set the park intro
+    
+//     // get the data
+//     setHeaderInfo(parkData); // call the function to set the header info
+    
+//      // add the contact info to the footer
+//     setParkFooter(parkData);
+// });
