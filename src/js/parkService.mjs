@@ -1,7 +1,6 @@
 const baseUrl = "https://developer.nps.gov/api/v1/";
 // each request will have a baseUrl + resourcePath + parameters
-// const apiKey = import.meta.env.VITE_NPS_API_KEY;
-const apiKey = "JSeukSZlUUihck5uk4KPPYDrrzvSulFtWUOPDsn7";
+const apiKey = import.meta.env.VITE_NPS_API_KEY;
 
 async function getJson(url) {
   const options = {
