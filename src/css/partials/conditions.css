@@ -1,0 +1,72 @@
+h1 {
+    font-size: 2em;
+    margin: 0.5em;
+    font-weight: 400;
+    font-family: var(--bs-font-serif);
+}
+.conditionAlerts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.conditionAlert {
+    display: flex;
+    align-items: flex-start;
+    /* padding: 0.5rem 1rem; */
+    padding: 1rem; 
+    gap: 1em;
+    border-bottom: 1px solid var(--bs-gray-300);
+}
+.conditionAlerts h2 {
+    font-size: 1.3em;
+    margin: 0.9em;
+}
+.conditionAlert h3 {
+    margin: 0;
+    font-size: 1.1em;
+}
+.conditionAlert p {
+    margin: 0;
+}
+.conditionAlert svg {
+    height: 30px;
+    width: 30px;
+    margin: 0.25em;
+    flex: 0 0 auto;
+}
+/* .conditionAlert-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    margin-top: 0,25rem;
+} */
+.conditionAlert > div {
+    flex-grow: 1;
+}
+.conditionAlert-title-info, 
+.conditionAlert-title-warning, 
+.conditionAlert-title-caution, 
+.conditionAlert-title-closure {
+    font-size: 1.1em;
+    margin: 0
+}
+.conditionAlert-title-info {
+    color: #2451a9;
+}
+
+/* visitor services */
+.visitor {
+    padding: 1rem; 
+    gap: 1em;
+    border: 1px solid var(--bs-gray-300);
+}
+details[name="condition-elements"] {
+    border: 1px solid var(--bs-gray-300);
+    padding: 0.5rem;
+}
+/* activities */
+.activities {
+    padding: 1rem; 
+    gap: 1em;
+    
+}

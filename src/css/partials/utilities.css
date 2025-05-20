@@ -21,18 +21,18 @@
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
-.alert-information {
+.alerts-information {
   color: var(--alert-information);
 }
-.alert-danger {
+.alerts-danger {
   color: var(--alert-danger);
 }
-.alert-warning {
+.alerts-warning {
   color: var(--alert-warning);
 }
-.alert-closure {
+.alerts-closure {
   color: var(--alert-closure);
 }
-.alert-caution {
+.alerts-caution {
   color: var(--alert-caution);
 }

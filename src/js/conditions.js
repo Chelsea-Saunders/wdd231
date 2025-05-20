@@ -4,48 +4,63 @@ import { getParkData, setHeaderFooter, retrieveAlerts } from "./parkService.mjs"
 const urlParameters = new URLSearchParams(window.location.search);
 const parkCode = urlParameters.get("parkCode") || "yell"; // default to yellowstone 
 
-function alertTemplate(info) {
-    let icon;
+const alerts = await retrieveAlerts(parkCode);
+console.log(alerts);
 
-    switch (info.category?.toLowerCase()) {
-        case "closure":
-            icon = "alert-closure";
+
+function alertTemplate(conditionAlerts) {
+    let alertType = "";
+    console.log(`TITLE: "${conditionAlerts.title}"`);
+    console.log(`CATEGORY: "${conditionAlerts.category}"`);
+
+
+    switch (conditionAlerts.category?.toLowerCase().trim()) {
+        case "park closure":
+            alertType = "closure";
             break;
         case "danger":
-            icon = "alert-danger";
+            alertType = "danger";
             break;
         case "warning":
-            icon = "alert-warning";
+            alertType = "warning";
+            break;
+        case "information":
+            alertType = "info";
             break;
         case "caution":
         case "advisory":
-            icon = "alert-caution";
+            alertType = "caution";
             break;
         default: 
-            icon = "alert-info";
+        alertType = "info";
+
+        console.log(`ALERT TYPE: "${alertType}"`);
+        console.log(`Alert: "${conditionAlerts.title}", category: "${conditionAlerts.category}", type: "${alertType}"`);
+
     }
     return `
-        <div class="alert">
-            <svg class="icon" focusable="false" aria-hidden="true">
-                <use xlink:href="/images/sprite.symbol.svg#${icon}"></use>
+        <li class="conditionAlert">
+            <svg class="conditionAlert-icon" focusable="false" aria-hidden="true">
+                <use xlink:href="/images/sprite.symbol.svg#alert-${alertType}"></use>
             </svg>
-            <h3 class="alert_title">${info.title}</h3>
-            <p>${info.description}</p>
-        </div>`;
+            <div>
+            <h3 class="conditionAlert-title-${alertType}">${conditionAlerts.title}</h3>
+            <p>${conditionAlerts.description}</p>
+        </div></li>`;
 }
 
-function setAlerts(alerts) {
-    const alertInfo = document.querySelector(".alerts");
-    if (!alerts || alerts.length === 0) {
-        alertInfo.innerHTML = "<p>No alerts available</p>";
+function setAlerts(conditionAlerts) {
+    const alertContainer = document.querySelector(".conditionAlerts ul");
+    if (!conditionAlerts || conditionAlerts.length === 0) {
+        alertContainer.innerHTML = "<p>No alerts available</p>";
         return;
     }
 
-    const alertsHTML = alerts.map(alertTemplate).join("");
+    const alertsHTML = conditionAlerts.map(alertTemplate).join("");
   
     // wrapping image links in a container
-    alertInfo.innerHTML = alertsHTML;
-  }
+    alertContainer.innerHTML = alertsHTML;
+}
 
 async function init() {
     const parkData = await getParkData(parkCode);
@@ -53,6 +68,6 @@ async function init() {
 
     setAlerts(alerts); // this will set the alerts
     setHeaderFooter(parkData);
-    console.log(alerts);
 }   
+
 init();
