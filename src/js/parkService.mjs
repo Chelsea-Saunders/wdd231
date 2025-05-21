@@ -14,7 +14,16 @@ export async function getJson(url) {
   const data = await response.json();
   return data;
 }
-
+export async function getAllActivities(parkCode) {
+  const data = await getJson(`thingstodo?parkCode=${parkCode}`);
+  return data.data;
+}
+export function allActivitiesTemplate(activities) {
+  return `
+    <li class="all-activities">
+      <p>${activities.title}</p>
+      `;
+}
 export async function getParkData(parkCode = "yell") {
   const data = await getJson(`parks?parkCode=${parkCode}`);
   return data.data[0];
@@ -22,6 +31,16 @@ export async function getParkData(parkCode = "yell") {
 export async function getVisitorCenterData(parkCode = "yell") {
   const data = await getJson(`visitorcenters?parkCode=${parkCode}`);
   return data.data;
+}
+// template function to output each visitro center with name, description adn driectionsInfo for each visitors center
+export function visitorCenterTemplate(center) {
+  return `
+    <li class="visitor-center">
+      <h3>${center.name}</h3>
+      <p>${center.description}</p>
+      <p><strong>Directions:</strong> ${center.directionsInfo || "No directions available"}</p>
+    </li>
+    `;
 }
 // function for mailing address
 function getMailingAddress(addresses) {
@@ -83,6 +102,7 @@ export function setHeaderFooter(data) {
     `;
   }
 }
+
 export async function retrieveAlerts (parkCode = "yell") {
   const data = await getJson(`alerts?parkCode=${parkCode}`);
   return data.data;  // return the full array of alerts

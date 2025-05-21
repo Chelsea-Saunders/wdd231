@@ -1,4 +1,9 @@
-import { getParkData, setHeaderFooter, retrieveAlerts } from "./parkService.mjs";
+import { 
+    getParkData, 
+    setHeaderFooter 
+} from "./parkService.mjs";
+import "../css/style.css";
+import "../css/partials/conditions.css";
 
 // making "yell" the global parkCode...can be changed from here only then in each code...
 const urlParameters = new URLSearchParams(window.location.search);

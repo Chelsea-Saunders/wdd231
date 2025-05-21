@@ -68,5 +68,34 @@ details[name="condition-elements"] {
 .activities {
     padding: 1rem; 
     gap: 1em;
-    
+}
+summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+/* summary::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 10px solid #15171b;
+    border-inline: 7px solid transparent;
+    transition: 0.2s;
+}
+details[open] > summary::after {
+    transform: rotate(180deg);
+} */
+.custom-arrow {
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+.custom-arrow:hover {
+    background-image: url("https://byui-cse.github.io/wdd231-course/images/arrow-hover.svg");
+    cursor: pointer;
 }
