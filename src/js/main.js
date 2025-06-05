@@ -1,13 +1,13 @@
 import { 
     getParkData, 
-    setHeaderFooter 
+    setHeaderFooter
 } from "./parkService.mjs";
 import "../css/style.css";
 import "../css/partials/conditions.css";
 
 // making "yell" the global parkCode...can be changed from here only then in each code...
-const urlParameters = new URLSearchParams(window.location.search);
-const parkCode = urlParameters.get("parkCode") || "yell"; // default to yellowstone 
+// const urlParameters = new URLSearchParams(window.location.search);
+// const parkCode = urlParameters.get("parkCode") || "yell"; // default to yellowstone 
 
 // function that will create a component consisting of an image, headline and paragraph
 function mediaCardTemplate(info) {
@@ -64,6 +64,63 @@ function getInfoLinks(images) {
         }
     ];
 }
+function toggleMenu() {
+    // get menu buttons
+    const mainButton = document.querySelector("#global-nav-toggle");
+
+    // when mainButton is clicked
+    mainButton.addEventListener("click", (ev) => {
+        let target = ev.target;
+
+        // toggle the show class on global-nav
+        document.querySelector(".global-nav").classList.toggle("show");
+
+        // check to see if target is the button or something inside the button
+        if (target.tagName != "BUTTON") {
+            target = target.closest("button");
+        }
+
+        // check to see if we just opened or closed the menu
+        if (document.querySelector(".global-nav").classList.contains("show")) {
+            // if we opened it then set the aria-expanded attribute on button to true
+            target.setAttribute("aria-expanded", true);
+        } else {
+            // if we closed the button, set the aria-expanded attribute to false
+            target.setAttribute("aria-expanded", false);
+        }
+        console.log("toggle");
+    });
+}
+toggleMenu();
+
+// // Toggle the visibility of the main menu button
+// function toggleMenu() {
+//   // element with class .global-nav should start hidden 
+//   const nav = document.querySelector(".global-nav");
+//   const mainMenuButton = document.querySelector("#global-nav-toggle");
+//   const openMenu = document.querySelector(".global-nav__toggle-menu-open");
+//   const closeMenu = document.querySelector(".global-nav__toggle-menu-close");
+
+//   // add event listener to the button. then run a function that does the toggling
+//   mainMenuButton.addEventListener("click", () => {
+//     const menuIsOpen = mainMenuButton.getAttribute("aria-expanded") === "true";
+
+//     if (menuIsOpen) {
+//       // menu is open, so to close it...
+//       nav.classList.remove("global-nav-open");
+//       mainMenuButton.setAttribute("aria-expanded", "false");
+//       openMenu.classList.remove("hidden");
+//       closeMenu.classList.add("hidden");
+//     } else {
+//       // menu is closed, so to open it...
+//       nav.classList.add("global-nav-open");
+//       mainMenuButton.setAttribute("aria-expanded", "true");
+//       openMenu.classList.add("hidden");
+//       closeMenu.classList.remove("hidden");
+//     }
+//   });
+// }// toggle menu to kick it off
+// toggleMenu();
 
 async function init() {
     try {

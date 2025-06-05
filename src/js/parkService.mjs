@@ -53,6 +53,7 @@ function getPhoneNumber(numbers) {
   const voice = numbers.find((number) => number.type === "Voice");
   return voice?.phoneNumber || "unavailable";
 }
+
 //function for the name designation and states of the park
 export function parkInfoTemplate(info) {
   const parkNameParts = info.name.split(" National Park");
