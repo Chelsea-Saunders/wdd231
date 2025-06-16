@@ -99,18 +99,89 @@
         <nav class="global-nav">
           <h2 class="global-nav__section-heading">Explore this Park</h2>
           <ul class="global-nav__list">
-            <li>
+            <li id="hide-top-button">
               <div class="global-nav__split-button">
                 <a href="#">Plan Your Visit</a>
-                <button class="global-nav__split-button__toggle">
-                  <span class="visually-hidden"
-                    >Toggle submenu for Plan Your Visit</span
-                  >
-                  <svg class="icon" role="presentation" focusable="false">
+                <button 
+                  class="global-nav__split-button__toggle" 
+                  aria-expanded="false"
+                  aria-controls="submenu-visit"  
+                >
+                  <span class="visually-hidden">Toggle submenu for Plan Your Visit</span>
+                  <svg class="toggle-icon" role="presentation" focusable="false">
                     <use xlink:href="images/sprite.symbol.svg#arrow"></use>
                   </svg>
                 </button>
               </div>
+              <ul class="global-nav__submenu" aria-label="Plan your visit submenu">
+                <h3 id="explore-the-nps">Explore the National Park Service</h3>
+              </ul>
+            </li>
+            <li>
+              <div class="global-nav__split-button">
+                <a href="#">Plan Your Visit</a>
+                <button 
+                  class="global-nav__split-button__toggle" 
+                  aria-expanded="false"
+                  aria-controls="submenu-visit"  
+                >
+                  <span class="visually-hidden">Toggle submenu for Plan Your Visit</span>
+                  <svg class="toggle-icon" role="presentation" focusable="false">
+                    <use xlink:href="images/sprite.symbol.svg#arrow"></use>
+                  </svg>
+                </button>
+              </div>
+              <ul class="menu-links" id="global-nav__submenu-plan" aria-label="Plan your visit submenu">
+                <li><a href="https://www.nps.gov/findapark/index.htm" >Find a Park</a></li>
+                <li><a href="https://www.nps.gov/planyourvisit/event-search.htm" >Events</a></li>
+                <li><a href="https://www.nps.gov/yell/planyourvisit/fees.htm" >Passes</a></li>
+                <li><a href="https://www.nps.gov/planyourvisit/trip-ideas.htm" >Trip Ideas</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div class="global-nav__split-button">
+                <a href="#">Learn and Explore</a>
+                <button 
+                  class="global-nav__split-button__toggle" 
+                  aria-expanded="false"
+                  aria-controls="submenu-visit"  
+                >
+                  <svg class="toggle-icon" role="presentation" focusable="false">
+                    <use xlink:href="images/sprite.symbol.svg#arrow"></use>
+                  </svg>
+                </button>
+              </div>
+              <ul class="menu-links" id="global-nav__submenu-learn" aria-label="Learn and Explore submenu">
+                <li><a href="https://www.nps.gov/aboutus/index.htm">About Us</a></li>
+                <li><a href="https://www.nps.gov/history/index.htm">Discover History</a></li>
+                <li><a href="https://www.nps.gov/nature/index.htm">Explore Nature</a></li>
+                <li><a href="https://www.nps.gov/kids/index.htm">Kids</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div class="global-nav__split-button">
+                <a href="#">Get Involved</a>
+                <button 
+                  class="global-nav__split-button__toggle" 
+                  aria-expanded="false"
+                  aria-controls="submenu-visit"  
+                >
+                  <span class="visually-hidden">Toggle submenu for Get Involved</span>
+                  <svg class="toggle-icon" role="presentation" focusable="false">
+                    <use xlink:href="images/sprite.symbol.svg#arrow"></use>
+                  </svg>
+                </button>
+              </div>
+              <ul class="menu-links" id="global-nav__submenu-involved" aria-label="Get involved submenu">
+                <li><a href="https://www.nps.gov/getinvolved/donate.htm">Donate</a></li>
+                <li><a href="https://www.nps.gov/subjects/partnerships/partner-with-us.htm">Partner</a></li>
+                <li><a href="https://www.nps.gov/subjects/volunteer/index.htm?">Volunteer</a></li>
+                <li><a href="https://www.nps.gov/aboutus/workwithus.htm">Work for Us</a></li>
+              </ul>
             </li>
           </ul>
         </nav>
@@ -193,3 +264,4 @@
 </html>
 
 <!-- week 1 GPT helps:  https://chatgpt.com/share/680a6770-67b4-800b-98c0-d9603a1628ab-->
+ <!-- week 7: https://chatgpt.com/share/6841f762-29d8-800b-b823-29d5828731c0 -->

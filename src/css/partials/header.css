@@ -26,20 +26,38 @@ span.national-park-service {
 }
 /* 'national park service + logo */
 .site-title {
-  text-decoration: none;
+  /* text-decoration: none; */
   display: flex;
   align-items: center;
+  flex-shrink: 1;
+  max-width: 60%;
+  /* border: 2px solid red; */
 }
 .site-title > span {
   font-size: 1rem;
   margin-left: 0.3em;
   font-size: .8rem;
 }
-/* icons and label for MENU and SEARCH and icons on right of header */
+header {
+  width: 100%;
+}
+/* icons and label for MENU and SEARCH and icons on right of */
+.global-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bs-black);
+  height: 5em;
+  max-width: 100%;
+  padding: 0 1rem;
+}
 .global-header__right {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: auto;
+  justify-content: flex-end;
+  padding-right: 1rem;
 }
 /* this button id holds the "menu" label and menu icon */
 button#global-nav-toggle {
@@ -80,12 +98,17 @@ svg.icon {
 
 /* global nav styles */
 .global-nav {
-    width: 100%;
-    grid-column: 1/3;
-    border-top: 1px solid #333;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.5s;
+  /* position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10000; */
+  width: 100%;
+  grid-column: 1/3;
+  border-top: 1px solid #333;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s;
 }
 global-nav button{
   background-color: transparent;
@@ -116,35 +139,6 @@ global-nav button{
 .hidden {
   display: none;
 }
-/* dropdown nav */
-/* .global-nav {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease; */
-  /* width: 100%;
-  grid-column: 1/3;
-  border-top: 1px solid #333; */
-/* }
-.global-nav.open {
-  max-height: 500px; 
-}
-#global-nav-toggle {
-  padding: 0.5rem 1rem;
-}
-.global-nav__toggle-menu-close { */
-  /* align-items: center;  */
-  /* display: inline-flex; */
-/* }
-.global-nav__toggle-menu-open {
-  display: inline-flex;
-  align-items: center; 
-  gap: 0.4rem;
-}
-.global-nav__toggle-menu-open .icon {
-  width: 2em;
-  height: 2em;
-  vertical-align: middle;
-} */
 
 /* main image of grand prismatic in yellowstone */
 .image-banner {
@@ -196,28 +190,24 @@ p.park-description-p {
 #icon-header {
   background-color: var(--bs-black);
   color: var(--bs-white);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-left: 20px;
-  padding-right: 20px;
-  justify-content: space-between;
-  flex-wrap: nowrap;
+  padding: 1rem 20px;
+  text-align: center;
 }
 #icon-header ul {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 #icon-header li {
   display: flex;
-  flex-direction: column; /* puts text above icons */
-  align-items: center;/* centers text/icon horizontally */
+  flex-direction: column; 
+  align-items: center;
   text-align: center; 
-  flex-wrap: wrap; /* allows items to wrap to the next line */
 }
 .icon-link {
   flex: 1;
@@ -226,9 +216,9 @@ p.park-description-p {
 }
 .icon-wrapper {
   display: flex;
-  flex-direction: column; /* puts text above icons, stacked vertically */
-  align-items: center; /* centers text/icon horizontally */
-  white-space: nowrap; /* prevents text from wrapping */
+  flex-direction: column;
+  align-items: center; 
+  white-space: nowrap; 
   padding-bottom: 0.3rem;
 }
 #info-icon {
@@ -239,6 +229,7 @@ p.park-description-p {
   color: var(--bs-white);
   text-decoration: none;
 }
+
 .label--container {
   font-size: 0.5rem;
 }
@@ -258,6 +249,53 @@ p.park-description-p {
   display: inline-block; /* allows the button to be inline with other elements */
   align-items: center; /* centers the content vertically */ 
 }
+
+/* Explore the park menu dropdown */
+.global-nav__split-button {
+  background-color: rgb(48, 67, 72);
+  color: var(--bs-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.global-nav__split-button a {
+  font-size: 0.8rem !important;
+  padding-left: 1rem;
+}
+button.global-nav__split-button__toggle {
+  background-color: rgb(48, 67, 72);
+  /* background-color: none; */
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 10%;
+}
+button.global-nav__split-button__toggle:hover {
+  background-color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.menu-links a {
+  font-size: 0.7rem;
+  padding:  0.5rem 0 0.5rem 1rem;
+  font-size: 0.8rem !important;
+  padding-left: 1rem;
+}
+
+svg.toggle-icon {
+  background-color: rgb(48, 67, 72);
+  padding: 0 5px;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+#explore-the-nps {
+  color: rgb(161, 177, 200);
+  font-size: 0.8rem;
+  padding-left: 1rem;
+}
+
 
 /* wider screen */
 @media (min-width: 500px)  {
@@ -328,5 +366,21 @@ p.park-description-p {
   span#fees, span#calendar, span#maps, 
   span#alerts, span#info {
     padding-bottom: 2px;
+  }
+  .global-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  #hide-top-button {
+    display: none;
+  }
+  h2 {
+    display: none;
+  }
+  .global-nav__submenu-plan {
+    padding-top: 0.5rem;
+  }
+  .menu-links li {
+    padding-top: 0.5rem;
   }
 }
