@@ -67,6 +67,7 @@ function getInfoLinks(images) {
 function toggleMenu() {
     // get menu buttons
     const mainButton = document.querySelector("#global-nav-toggle");
+    const dropdownMenu = document.querySelectorAll(".global-nav__split-button__toggle");
 
     // when mainButton is clicked
     mainButton.addEventListener("click", (ev) => {
@@ -90,37 +91,23 @@ function toggleMenu() {
         }
         console.log("toggle");
     });
+    // when menu dropdown buttons are clicked
+    dropdownMenu.forEach((button) => {
+        button.addEventListener("click", (ev) => {
+            const target = ev.currentTarget;
+
+            // find associated dropdown menu
+            const dropdown = target.parentElement.nextElementSibling;
+            const isOpen = target.getAttribute("aria-expanded") === "true";
+
+            // update aria=expanded
+            target.setAttribute("aria-expanded", !isOpen);
+            // toggle dropdown visibility
+            dropdown.classList.toggle("show");
+        });
+    });
 }
 toggleMenu();
-
-// // Toggle the visibility of the main menu button
-// function toggleMenu() {
-//   // element with class .global-nav should start hidden 
-//   const nav = document.querySelector(".global-nav");
-//   const mainMenuButton = document.querySelector("#global-nav-toggle");
-//   const openMenu = document.querySelector(".global-nav__toggle-menu-open");
-//   const closeMenu = document.querySelector(".global-nav__toggle-menu-close");
-
-//   // add event listener to the button. then run a function that does the toggling
-//   mainMenuButton.addEventListener("click", () => {
-//     const menuIsOpen = mainMenuButton.getAttribute("aria-expanded") === "true";
-
-//     if (menuIsOpen) {
-//       // menu is open, so to close it...
-//       nav.classList.remove("global-nav-open");
-//       mainMenuButton.setAttribute("aria-expanded", "false");
-//       openMenu.classList.remove("hidden");
-//       closeMenu.classList.add("hidden");
-//     } else {
-//       // menu is closed, so to open it...
-//       nav.classList.add("global-nav-open");
-//       mainMenuButton.setAttribute("aria-expanded", "true");
-//       openMenu.classList.add("hidden");
-//       closeMenu.classList.remove("hidden");
-//     }
-//   });
-// }// toggle menu to kick it off
-// toggleMenu();
 
 async function init() {
     try {
