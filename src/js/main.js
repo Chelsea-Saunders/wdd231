@@ -2,6 +2,7 @@ import { getParkData } from "./parkService.mjs";
 import setHeaderFooter from "./setHeaderFooter.mjs";
 import "../css/style.css";
 import "../css/partials/conditions.css";
+// import "./visitor-center.js";
 
 // making "yell" the global parkCode...can be changed from here only then in each code...
 // const urlParameters = new URLSearchParams(window.location.search);
@@ -55,7 +56,7 @@ function getInfoLinks(images) {
             },
             {
             name: "Visitor Centers",
-            link: "#centers",
+            link: "/visitor-center.html?id=${yourVisitorCenterId}",
             image: images[9]?.url || "images/default.jpg",
             altText: images[9]?.altText || "Visitor centers and services",
             description: "Find visitor centers, hours, and available services."
@@ -63,6 +64,9 @@ function getInfoLinks(images) {
     ];
 }
 
+// if (document.querySelector(".visitor-center")) {
+//     init();
+// }
 
 async function init() {
     try {

@@ -32,11 +32,11 @@ export async function getVisitorCenterData(parkCode = "yell") {
   const data = await getJson(`visitorcenters?parkCode=${parkCode}`);
   return data.data;
 }
-// template function to output each visitro center with name, description adn driectionsInfo for each visitors center
+// template function to output each visitro center with name, description and driectionsInfo for each visitors center
 export function visitorCenterTemplate(center) {
   return `
     <li class="visitor-center">
-      <h3>${center.name}</h3>
+      <h3><a href="visitor-center.html?id=${center.id}">${center.name}</a></h3>
       <p>${center.description}</p>
       <p><strong>Directions:</strong> ${center.directionsInfo || "No directions available"}</p>
     </li>
@@ -107,4 +107,10 @@ export function setHeaderFooter(data) {
 export async function retrieveAlerts (parkCode = "yell") {
   const data = await getJson(`alerts?parkCode=${parkCode}`);
   return data.data;  // return the full array of alerts
+}
+
+// retrieve the visitor center data from API
+export async function getParkVisitorCenterDetails(id) {
+  const parkData = await getJson(`visitorcenters?id=${id}`);
+  return parkData.data[0];
 }

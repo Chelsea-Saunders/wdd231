@@ -389,6 +389,12 @@ svg.toggle-icon {
   span#alerts, span#info {
     padding-bottom: 2px;
   }
+  .menu-links,
+  .global-nav__submenu {
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible;
+  }
   .global-nav {
     position: absolute;
     top: 7.9em;
@@ -425,5 +431,11 @@ svg.toggle-icon {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .menu-links,
+  .global-nav__submenu {
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible;
   }
 }
